@@ -85,10 +85,41 @@ fastsurferdir=/home/ashrafo/my_fastsurfer_analysis
 ./run_fastsurfer.sh --t1 $datadir/bert/001.mgz --sid bert --sd $datadir --parallel --threads 4 --py python3
 ```
 
- 
-    
+- For visualizatoin on freeview run the following command 
+```shell
+freeview /home/ashrafo/my_fastsurfer_analysis/bert/mri/aparc.DKTatlas+aseg.deep.mgz /home/ashrafo/my_fastsurfer_analysis/bert/mri/norm.mgz
+```
+### Example 2: Example 5 Quick Segmentation
+For many applications you won't need the surfaces. You can run only the segmentation (in 1 minute on a GPU) via
+```shell
+./run_fastsurfer.sh --t1 $datadir/subject1/t1-weighted.nii.gz \
+                    --main_segfile $ouputdir/subject1/aparc.DKTatlas+aseg.deep.mgz \
+                    --conformed_name $ouputdir/subject1/conformed.mgz \
+                    --parallel --threads 4 --seg_only --py python3 --sid subject1 --sd /outputdir/subject1
+```
+
+This will produce the segmentation in a conformed space (just as FreeSurfer would do). It also writes the conformed image that fits the segmentation. Conformed means that the image will be isotropic in LIA orientation. It will furthermore output a brain mask (mask.mgz) and a simplified segmentation file (aseg.auto_noCCseg.mgz).
+
 
     
+Here is the example 
+```shell 
+./run_fastsurfer.sh --t1 $datadir/bert_qs/001.mgz \
+--main_segfile /home/ashrafo/quick_segmentation_output/osama/aparc.DKTatlas+aseg.deep.mgz \
+--conformed_name /home/ashrafo/quick_segmentation_output/osama/conformed.mgz \
+--parallel --threads 4 --seg_only --py python3 --sid osama \
+--sd /home/ashrafo/quick_segmentation_output/osama/
+
+```
+
+Alternatively - but this requires a FreeSurfer install - you can get mask and also statistics after insertion of the corpus callosum by adding --vol_segstats in the run_fastsurfer.sh command:
+```shell
+
+./run_fastsurfer.sh --t1 $datadir/subject1/t1-weighted.nii.gz \
+                    --main_segfile $ouputdir/subject1/aparc.DKTatlas+aseg.deep.mgz \
+                    --conformed_name $ouputdir/subject1/conformed.mgz \
+                    --parallel --threads 4 --seg_only --vol_segstats
+```
     
     
 
