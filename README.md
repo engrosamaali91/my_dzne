@@ -58,6 +58,33 @@ To create a Python virtual environment, you can follow these steps:
  ```shell 
  pip install -r requirements.txt
  ```
+ - Make sure to clone and change the directory to fastserver repository. https://github.com/Deep-MI/FastSurfer
+ - ### Example 1: Native FastSurfer on subjectX (with parallel processing of hemis)
+ ```shell
+ # Source FreeSurfer
+export FREESURFER_HOME=/path/to/freesurfer
+source $FREESURFER_HOME/SetUpFreeSurfer.sh
+
+# Define data directory
+datadir=/home/user/my_mri_data
+fastsurferdir=/home/user/my_fastsurfer_analysis
+
+# Run FastSurfer
+./run_fastsurfer.sh --t1 $datadir/subjectX/t1-weighted-nii.gz \
+                    --sid subjectX --sd $fastsurferdir \
+                    --parallel --threads 4 \
+                    --py python3
+```
+
+-For example the command line should look as follows
+```shell 
+export FREESURFER_HOME=/groups/ag-reuter/software-centos/fs732
+source $FREESURFER_HOME/SetUpFreeSurfer.sh
+datadir=/home/ashrafo/my_mri_data
+fastsurferdir=/home/ashrafo/my_fastsurfer_analysis
+./run_fastsurfer.sh --t1 $datadir/bert/001.mgz --sid bert --sd $datadir --parallel --threads 4 --py python3
+```
+
  
     
 
