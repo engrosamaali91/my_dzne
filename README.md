@@ -30,7 +30,7 @@ To create a Python virtual environment, you can follow these steps:
     ```shell
     python -m venv myenv
     ```
-    Replace myenv with the name you want to give to your virtual environment.
+    Replace myenv with the name you want to give to your virtual environment.Also check which python version is installed on your system ```python --version``` and add its version as python2 or python3 accordingly. 
     
     4. Activate the virtual environment by running the following command:
 
@@ -54,9 +54,9 @@ To create a Python virtual environment, you can follow these steps:
 
 - After activating the python envirnment install all the necessary Python 3 libraries installed (see requirements.txt) as well as bash-4.0 or higher (when using pip, upgrade pip first as older versions will fail).
 
- - To install all the dependencies listed in your requirements.txt file, you can use the following command:
+ - To install all the dependencies listed in your requirements.txt file make sure you have sources the virtual environment, you can use the following command:
  ```shell 
- pip install -r requirements.txt
+ pip install -r /path/to/requirements.txt
  ```
  - Make sure to clone and change the directory to fastserver repository. https://github.com/Deep-MI/FastSurfer
  - ### Example 3: Native FastSurfer on subjectX (with parallel processing of hemis)
