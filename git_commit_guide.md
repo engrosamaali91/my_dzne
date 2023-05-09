@@ -1,3 +1,5 @@
+This is applicable when you mistakenly git add . everything, this in returns not only add the modified file but also the binary files that are not necessary.
+
 ```shell
 git status
 
@@ -17,4 +19,5 @@ git rm --cached -r FastSurferCNN/config/__pycache__ checkpoints FastSurferCNN/da
 git status 
 
 git commit -m "more files removed"
+
 ```
