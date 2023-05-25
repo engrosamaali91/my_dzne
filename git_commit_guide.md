@@ -26,8 +26,11 @@ Other edits (e.g. placement of WM control points) are not meaningful, as the seg
 
 Therefore, currently three types of edits are possible:
 
-1. Instead of using the original scan as input, you can perform a bias field correction as a pre-processing step. This can also be achieved by running the *asegdkt module* twice (using different subject ids). The second time you input the bias field corrected image ```orig_nu.mgz``` that was provided from the first run. This can help brighten up some regions and improve segmentation quality for some difficult cases.
-2. You can manually edit ```aparc.DKTatlas+aseg.deep.mgz```. This is similar to aseg edits in FreeSurfer. You can fill-in undersegmented regions (with the correct segmentation ID). To re-create the aseg and mask run the following command before continuing with other modules:
+1. Instead of using the original scan as input, you can perform a bias field correction as a pre-processing step. This can also be achieved by running the *asegdkt module* twice (using different subject ids). The second time you input the bias field corrected image ```orig_nu.mgz```
+Steps:
+ 1.
+3.   that was provided from the first run. This can help brighten up some regions and improve segmentation quality for some difficult cases.
+4. You can manually edit ```aparc.DKTatlas+aseg.deep.mgz```. This is similar to aseg edits in FreeSurfer. You can fill-in undersegmented regions (with the correct segmentation ID). To re-create the aseg and mask run the following command before continuing with other modules:
 
    ```
    python3 reduce_to_aseg.py -i sid/mri/aparc.DKTatlas+aseg.deep.edited.mgz 
